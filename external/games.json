@@ -1,0 +1,12 @@
+[
+  {
+    "display": "Example",
+    "id": "example-com",
+    "url": "https://example.com"
+  },
+  {
+    "display": "Cool Math Games",
+    "id": "cool-math-games",
+    "url": "https://www.coolmathgames.com"
+  }
+]
