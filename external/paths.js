@@ -1,3 +1,3 @@
 window.PATHS = {
-    games: "http://localhost:8000/games.json"
+    games: "https://jjjwelch420.github.io/V2/external/games.json"
 };
