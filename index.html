@@ -59,6 +59,7 @@
     .then(res => res.json())
     .then(games => {
       if (!page) {
+        // Show buttons
         games.forEach(game => {
           const btn = document.createElement("button");
           btn.textContent = game.display;
@@ -66,6 +67,7 @@
           buttonsDiv.appendChild(btn);
         });
       } else {
+        // Load selected page
         const game = games.find(g => g.id === page);
 
         if (!game) {
@@ -74,9 +76,23 @@
         }
 
         const iframe = document.createElement("iframe");
-        iframe.src = game.url;
-
         frameDiv.appendChild(iframe);
+
+        // Fetch the external HTML and inject it into the iframe
+        fetch(game.url)
+          .then(res => res.text())
+          .then(html => {
+            const doc = iframe.contentWindow.document;
+            doc.open();
+            doc.write(html);
+            doc.close();
+          })
+          .catch(err => {
+            const doc = iframe.contentWindow.document;
+            doc.open();
+            doc.write("<h1>Failed to load page</h1><pre>" + err + "</pre>");
+            doc.close();
+          });
       }
     });
 
@@ -92,3 +108,4 @@
 
 </body>
 </html>
+ 
