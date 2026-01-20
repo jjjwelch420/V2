@@ -4,108 +4,27 @@
   <meta charset="UTF-8">
   <title>Game Launcher</title>
 
-  <!-- You can change this path to any paths.js you want -->
+  <!-- Favicon -->
+  <!-- <link rel="icon" href="favicon.ico"> -->
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="https://jjjwelch420.github.io/V2/external/styles.css">
+
+  <!-- External config -->
   <script src="https://jjjwelch420.github.io/V2/external/paths.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden; /* parent page cannot scroll */
-    }
-    #buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    button {
-      font-size: 2rem;
-      padding: 15px 30px;
-      cursor: pointer;
-    }
-    iframe {
-      border: none;
-      width: 100vw;
-      height: 100vh;
-      /* iframe scrolls normally */
-    }
-  </style>
+  <!-- Launcher logic -->
+  <script defer src="https://jjjwelch420.github.io/V2/external/main.js"></script>
 </head>
 <body>
 
-<div id="buttons"></div>
-<div id="frame"></div>
-
-<script>
-  // Wait until paths.js loads and defines window.PATHS
-  const gamesJsonPath = window.PATHS?.games;
-
-  if (!gamesJsonPath) {
-    document.body.innerHTML = "<h1>paths.js missing or invalid</h1>";
-    throw new Error("paths.js did not define window.PATHS.games");
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  const page = params.get("page");
-
-  const buttonsDiv = document.getElementById("buttons");
-  const frameDiv = document.getElementById("frame");
-
-  fetch(gamesJsonPath)
-    .then(res => res.json())
-    .then(games => {
-      if (!page) {
-        // Show buttons
-        games.forEach(game => {
-          const btn = document.createElement("button");
-          btn.textContent = game.display;
-          btn.onclick = () => openPage(game.id);
-          buttonsDiv.appendChild(btn);
-        });
-      } else {
-        // Load selected page
-        const game = games.find(g => g.id === page);
-
-        if (!game) {
-          document.body.innerHTML = "<h1>Invalid page</h1>";
-          return;
-        }
-
-        const iframe = document.createElement("iframe");
-        frameDiv.appendChild(iframe);
-
-        // Fetch the external HTML and inject it into the iframe
-        fetch(game.url)
-          .then(res => res.text())
-          .then(html => {
-            const doc = iframe.contentWindow.document;
-            doc.open();
-            doc.write(html);
-            doc.close();
-          })
-          .catch(err => {
-            const doc = iframe.contentWindow.document;
-            doc.open();
-            doc.write("<h1>Failed to load page</h1><pre>" + err + "</pre>");
-            doc.close();
-          });
-      }
-    });
-
-  function openPage(id) {
-    const newUrl =
-      window.location.origin +
-      window.location.pathname +
-      "?page=" + id;
-
-    window.open(newUrl, "_blank");
-  }
-</script>
+  <!-- Only the launcher container lives in the body -->
+  <div id="launcher">
+    <div id="search-container">
+      <input id="search" placeholder="Search...">
+    </div>
+    <div id="results"></div>
+  </div>
 
 </body>
 </html>
- 
