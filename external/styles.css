@@ -5,8 +5,8 @@ body {
   height: 100vh;
   overflow: hidden;
   padding: 20px;
-  background: #0a0a0a;          /* deep black */
-  color: #d6b3ff;               /* soft purple text */
+  background: #000000;          /* pure black */
+  color: #c38aff;               /* soft purple text */
 }
 
 /* Launcher layout */
@@ -24,19 +24,19 @@ body {
 }
 
 #search {
-  width: 100%;                  /* full width */
+  width: 100%;
   font-size: 1.3rem;
   padding: 12px 16px;
   border-radius: 8px;
-  border: 2px solid #6a00ff;    /* neon purple border */
-  background: #1a1a1a;          /* dark gray input */
-  color: #e6d6ff;
+  border: 2px solid #7a00ff;    /* purple border */
+  background: #0d0d0d;          /* dark black/gray */
+  color: #d8b4ff;
   outline: none;
   box-sizing: border-box;
 }
 
 #search:focus {
-  border-color: #a855ff;        /* lighter purple glow */
+  border-color: #a855ff;
   box-shadow: 0 0 10px #a855ff;
 }
 
@@ -47,25 +47,27 @@ body {
   gap: 12px;
 }
 
-/* Smaller, cleaner buttons */
+/* Buttons: black, purple outline, purple text, NOT full width */
 button {
-  font-size: 1.2rem;            /* smaller */
+  font-size: 1.2rem;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 6px;
-  border: none;
-  background: #6a00ff;          /* purple */
-  color: white;
+  border: 2px solid #7a00ff;    /* purple outline */
+  background: #000000;          /* black button */
+  color: #c38aff;               /* purple text */
+  width: fit-content;           /* prevents stretching */
+  max-width: 90%;               /* keeps long names tidy */
   transition: 0.2s ease;
 }
 
 button:hover {
-  background: #8f3dff;          /* lighter purple */
+  background: #1a001f;          /* subtle purple tint */
   transform: translateY(-2px);
 }
 
 button:active {
-  background: #4b00b8;
+  background: #0d0010;
   transform: translateY(0);
 }
 
