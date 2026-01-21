@@ -1,4 +1,4 @@
-const gamesJsonPath = window.PATHS?.games;
+const gamesJsonPath = window.PATHS.games;
 
 if (!gamesJsonPath) {
   document.body.innerHTML = "<h1>paths.js missing or invalid</h1>";
