@@ -1,12 +1,12 @@
 /* Global theme */
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Roboto Serif", serif;   /* unified font */
   height: 100vh;
   overflow: hidden;
   padding: 20px;
-  background: #000000;          /* pure black */
-  color: #c38aff;               /* soft purple text */
+  background: #000000;                  /* pure black */
+  color: #7a00ff;                       /* dark purple text */
 }
 
 /* Launcher layout */
@@ -28,51 +28,52 @@ body {
   font-size: 1.3rem;
   padding: 12px 16px;
   border-radius: 8px;
-  border: 2px solid #7a00ff;    /* purple border */
-  background: #0d0d0d;          /* dark black/gray */
-  color: #d8b4ff;
+  border: 2px solid #7a00ff;            /* dark purple border */
+  background: #000000;                  /* black input */
+  color: #7a00ff;                       /* dark purple text */
   outline: none;
   box-sizing: border-box;
 }
 
 #search:focus {
-  border-color: #a855ff;
-  box-shadow: 0 0 10px #a855ff;
+  border-color: #7a00ff;
+  box-shadow: 0 0 10px #7a00ff;         /* purple glow */
 }
 
 /* Results list: horizontal flow + wrapping */
 #results {
   display: flex;
-  flex-wrap: wrap;              /* allows wrapping */
-  gap: 12px;                    /* spacing between buttons */
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 /* Fixed-size buttons: black + purple outline + purple text */
 button {
-  width: 150px;                 /* fixed width */
-  height: 60px;                 /* fixed height */
+  width: 150px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  font-family: "Roboto Serif", serif;   /* ensure consistency */
   font-size: 1.2rem;
   cursor: pointer;
 
   border-radius: 6px;
-  border: 2px solid #7a00ff;    /* purple outline */
-  background: #000000;          /* black button */
-  color: #c38aff;               /* purple text */
+  border: 2px solid #7a00ff;            /* dark purple outline */
+  background: #000000;                  /* black button */
+  color: #7a00ff;                       /* dark purple text */
 
   transition: 0.2s ease;
 }
 
 button:hover {
-  background: #1a001f;          /* subtle purple tint */
+  background: #14001a;                  /* subtle dark-purple tint */
   transform: translateY(-2px);
 }
 
 button:active {
-  background: #0d0010;
+  background: #0a0010;
   transform: translateY(0);
 }
 
@@ -91,4 +92,3 @@ button:active {
   height: 100%;
   border: none;
 }
- 

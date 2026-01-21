@@ -1,4 +1,10 @@
 // Favicon
+const font = document.createElement("link");
+font.rel = "stylesheet";
+font.href = "https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;700&display=swap";
+document.head.appendChild(font);
+
+
 const icon = document.createElement("link");
 icon.rel = "icon";
 icon.href = window.PATHS.favicon;
