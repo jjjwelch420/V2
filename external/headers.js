@@ -17,3 +17,9 @@ const script = document.createElement("script");
 script.defer = true;
 script.src = window.PATHS.js;
 document.head.appendChild(script);
+// Always load frame.css
+const frameCss = document.createElement("link");
+frameCss.rel = "stylesheet";
+frameCss.href = window.PATHS.frameCss;
+document.head.appendChild(frameCss);
+

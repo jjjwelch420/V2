@@ -64,6 +64,7 @@ function loadGamePage(games, pageId) {
   document.body.appendChild(frameDiv);
 
   const iframe = document.createElement("iframe");
+  iframe.id = "launcher-game-frame-9a3f2b";   // ← ★ ONLY CHANGE ADDED ★
   iframe.tabIndex = -1;
   frameDiv.appendChild(iframe);
 
