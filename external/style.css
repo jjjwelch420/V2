@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: "Roboto Serif", serif;
-  height: 100vh;
   padding: 20px;
+  overflow: auto;
   background: #000000;                  /* pure black */
   color: #7a00ff;                       /* dark purple text */
 }
