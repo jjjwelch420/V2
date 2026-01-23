@@ -1,4 +1,6 @@
-/* Only affects the launcher iframe, nothing else */
+body {
+  overflow: hidden; 
+}
 #launcher-game-frame-9a3f2b {
   position: absolute;
   top: 0;

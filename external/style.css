@@ -1,9 +1,8 @@
 /* Global theme */
 body {
   margin: 0;
-  font-family: "Roboto Serif", serif;   /* unified font */
+  font-family: "Roboto Serif", serif;
   height: 100vh;
-  overflow: hidden;
   padding: 20px;
   background: #000000;                  /* pure black */
   color: #7a00ff;                       /* dark purple text */
@@ -18,26 +17,37 @@ body {
   z-index: 10;
 }
 
-/* Full-width search bar */
+/* Full-width search bar container */
 #search-container {
   width: 100%;
 }
 
+/* MERGED SEARCH BAR STYLE */
 #search {
   width: 100%;
-  font-size: 1.3rem;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 2px solid #7a00ff;            /* dark purple border */
-  background: #000000;                  /* black input */
-  color: #7a00ff;                       /* dark purple text */
-  outline: none;
+  height: 37.5px;                       /* from .search-bar */
+  font-size: 14px;                      /* from .search-bar */
+  font-family: "Roboto Serif", serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  padding: 0 8px;
+  margin-bottom: 15px;
+
+  border-radius: 6px;
+  border: 2px solid #8a85ff;            /* fancy purple */
+  background-color: #1e1e1e;            /* dark gray/black */
+  color: #8a85ff;
+
+  transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
 #search:focus {
-  border-color: #7a00ff;
-  box-shadow: 0 0 10px #7a00ff;         /* purple glow */
+  outline: none;
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  box-shadow: 0 0 10px #8a85ff;
 }
 
 /* Results list: horizontal flow + wrapping */
@@ -47,33 +57,37 @@ body {
   gap: 12px;
 }
 
-/* Fixed-size buttons: black + purple outline + purple text */
+/* MERGED BUTTON STYLE */
 button {
-  width: 150px;
-  height: 60px;
+  width: 180px;                         /* from .fancy-button */
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-family: "Roboto Serif", serif;   /* ensure consistency */
-  font-size: 1.2rem;
+  font-family: "Roboto Serif", serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
   cursor: pointer;
 
   border-radius: 6px;
-  border: 2px solid #7a00ff;            /* dark purple outline */
-  background: #000000;                  /* black button */
-  color: #7a00ff;                       /* dark purple text */
+  border: 2px solid #8a85ff;            /* fancy purple */
+  background-color: #1e1e1e;
+  color: #8a85ff;
 
-  transition: 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background: #14001a;                  /* subtle dark-purple tint */
+  background-color: #8a85ff;
+  color: #1e1e1e;
   transform: translateY(-2px);
 }
 
 button:active {
-  background: #0a0010;
+  background-color: #2b2b2b;
   transform: translateY(0);
 }
 
