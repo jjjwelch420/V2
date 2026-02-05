@@ -61,5 +61,9 @@
   
   {"display":"R.E.P.O","id":"repo","url":"https://jjjwelch420.github.io/V2/external/pages/repo.html"},
   {"display":"Terraria","id":"terraria","url":"https://jjjwelch420.github.io/V2/external/pages/terraria.html"},
-  {"display":"Hollow Knight","id":"hollow-knight","url":"https://jjjwelch420.github.io/V2/external/pages/hollow-knight.html"}
+  {"display":"Hollow Knight","id":"hollow-knight","url":"https://jjjwelch420.github.io/V2/external/pages/hollow-knight.html"},
+  
+  
+  
+  {"display":"The Deadseat","id":"dead-seat","url":"https://jjjwelch420.github.io/V2/external/pages/dead-seat.html"}
 ]
