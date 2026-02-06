@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Password‑Protected Download</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    #downloadBtn {
+        display: none;
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Enter Password</h2>
+
+<input type="password" id="pw" placeholder="Password">
+<button onclick="checkPassword()">Submit</button>
+
+<button id="downloadBtn" onclick="downloadFile()">Download</button>
+
+<script>
+// REQUIRED PASSWORD
+const CORRECT_PASSWORD = "ISSCBTA1234";
+
+// YOUR BASE64 HTML STRING (replace this with your real one)
+const base64HTML = "CiAgICAgICAgICAgIDxodG1sPgogICAgICAgICAgICA8aGVhZD4KICAgICAgICAgICAgICAgIDx0aXRsZT5Hb29nbGU8L3RpdGxlPgogICAgICAgICAgICAgICAgPGxpbmsgcmVsPSJpY29uIiBocmVmPSJodHRwczovL2xhbGEudW5pYnV0dG9uLmNvbS9vcy9nb29nbGVfZmF2aWNvbi5pY28iIHR5cGU9ImltYWdlL3gtaWNvbiI+CiAgICAgICAgICAgIDwvaGVhZD4KICAgICAgICAgICAgPGJvZHk+CiAgICAgICAgICAgICAgICA8aWZyYW1lIHNyYz0iaHR0cHM6Ly9sYWxhLnVuaWJ1dHRvbi5jb20vbWFpbi5odG1sIiBzdHlsZT0iYm9yZGVyOm5vbmU7IGhlaWdodDogMTAwJTsgd2lkdGg6IDEwMCU7IHBvc2l0aW9uOiBmaXhlZDsgbGVmdDogMHB4OyB0b3A6IDBweDsiPjwvaWZyYW1lPgogICAgICAgICAgICA8L2JvZHk+CiAgICAgICAgICAgIDwvaHRtbD4KICAgICAgICA=";
+
+function checkPassword() {
+    const input = document.getElementById("pw").value;
+    if (input === CORRECT_PASSWORD) {
+        document.getElementById("downloadBtn").style.display = "inline-block";
+        alert("Password correct");
+    } else {
+        alert("Incorrect password");
+    }
+}
+
+function downloadFile() {
+    // Decode Base64 → HTML text
+    const decoded = atob(base64HTML);
+
+    // Create a Blob
+    const blob = new Blob([decoded], { type: "text/html" });
+
+    // Create a temporary download link
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "file.html";
+    a.click();
+
+    // Cleanup
+    URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
